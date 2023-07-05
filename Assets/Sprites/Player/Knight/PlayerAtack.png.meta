@@ -126,7 +126,7 @@ TextureImporter:
       name: PlayerAtack_0
       rect:
         serializedVersion: 2
-        x: 54
+        x: 39
         y: 19
         width: 54
         height: 36
@@ -147,7 +147,7 @@ TextureImporter:
       name: PlayerAtack_1
       rect:
         serializedVersion: 2
-        x: 198
+        x: 183
         y: 19
         width: 54
         height: 36
@@ -168,7 +168,7 @@ TextureImporter:
       name: PlayerAtack_2
       rect:
         serializedVersion: 2
-        x: 342
+        x: 327
         y: 19
         width: 54
         height: 36
@@ -189,7 +189,7 @@ TextureImporter:
       name: PlayerAtack_3
       rect:
         serializedVersion: 2
-        x: 486
+        x: 471
         y: 19
         width: 54
         height: 36
@@ -210,7 +210,7 @@ TextureImporter:
       name: PlayerAtack_4
       rect:
         serializedVersion: 2
-        x: 630
+        x: 614
         y: 19
         width: 54
         height: 36
@@ -231,7 +231,7 @@ TextureImporter:
       name: PlayerAtack_5
       rect:
         serializedVersion: 2
-        x: 773
+        x: 763
         y: 19
         width: 54
         height: 36
@@ -252,7 +252,7 @@ TextureImporter:
       name: PlayerAtack_6
       rect:
         serializedVersion: 2
-        x: 917
+        x: 906
         y: 19
         width: 54
         height: 36
@@ -273,7 +273,7 @@ TextureImporter:
       name: PlayerAtack_7
       rect:
         serializedVersion: 2
-        x: 1061
+        x: 1051
         y: 19
         width: 54
         height: 36
@@ -294,7 +294,7 @@ TextureImporter:
       name: PlayerAtack_8
       rect:
         serializedVersion: 2
-        x: 1207
+        x: 1193
         y: 19
         width: 54
         height: 36
@@ -315,7 +315,7 @@ TextureImporter:
       name: PlayerAtack_9
       rect:
         serializedVersion: 2
-        x: 1340
+        x: 1334
         y: 19
         width: 54
         height: 36
@@ -357,7 +357,7 @@ TextureImporter:
       name: PlayerAtack_11
       rect:
         serializedVersion: 2
-        x: 1638
+        x: 1630
         y: 19
         width: 54
         height: 36
@@ -378,7 +378,7 @@ TextureImporter:
       name: PlayerAtack_12
       rect:
         serializedVersion: 2
-        x: 1782
+        x: 1769
         y: 19
         width: 54
         height: 36
@@ -399,7 +399,7 @@ TextureImporter:
       name: PlayerAtack_13
       rect:
         serializedVersion: 2
-        x: 1931
+        x: 1915
         y: 19
         width: 54
         height: 36
@@ -420,7 +420,7 @@ TextureImporter:
       name: PlayerAtack_14
       rect:
         serializedVersion: 2
-        x: 2081
+        x: 2066
         y: 19
         width: 54
         height: 36
@@ -441,7 +441,7 @@ TextureImporter:
       name: PlayerAtack_15
       rect:
         serializedVersion: 2
-        x: 2224
+        x: 2212
         y: 19
         width: 54
         height: 36
@@ -462,7 +462,7 @@ TextureImporter:
       name: PlayerAtack_16
       rect:
         serializedVersion: 2
-        x: 2374
+        x: 2357
         y: 19
         width: 54
         height: 36
@@ -504,7 +504,7 @@ TextureImporter:
       name: PlayerAtack_18
       rect:
         serializedVersion: 2
-        x: 2675
+        x: 2661
         y: 19
         width: 54
         height: 36
@@ -525,7 +525,7 @@ TextureImporter:
       name: PlayerAtack_19
       rect:
         serializedVersion: 2
-        x: 2818
+        x: 2803
         y: 19
         width: 54
         height: 36
@@ -546,7 +546,7 @@ TextureImporter:
       name: PlayerAtack_20
       rect:
         serializedVersion: 2
-        x: 2962
+        x: 2947
         y: 19
         width: 54
         height: 36
@@ -567,7 +567,7 @@ TextureImporter:
       name: PlayerAtack_21
       rect:
         serializedVersion: 2
-        x: 3106
+        x: 3092
         y: 19
         width: 54
         height: 36
