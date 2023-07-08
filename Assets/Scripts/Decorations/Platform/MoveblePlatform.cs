@@ -14,24 +14,13 @@ public class MoveblePlatform : MonoBehaviour
         platformMotor = platformJoint.motor;
     }
 
-    private void Update()
-    {
-        if (playerOnPlatform)
-        {
-            Debug.Log($"Motor speed: {platformJoint.motor.motorSpeed}");
-            platformMotor.motorSpeed = -1f;
-            platformJoint.motor = platformMotor;
-        }
-    }
-
     private void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log($"Collision with {other.gameObject.name}");
         if (other.gameObject.CompareTag("Player"))
         {
-            other.transform.SetParent(transform);
             playerOnPlatform = true;
-            platformJoint.useMotor = true;
+            MovePlatform(playerOnPlatform, other.gameObject);
         }
     }
 
@@ -40,9 +29,27 @@ public class MoveblePlatform : MonoBehaviour
         Debug.Log($"Collision exit: {other.gameObject.name}");
         if (other.gameObject.CompareTag("Player"))
         {
-            other.transform.SetParent(null);
             playerOnPlatform = false;
-            platformJoint.useMotor = false;
+            MovePlatform(playerOnPlatform, other.gameObject);
+        }
+        
+    }
+
+    private void MovePlatform(bool onPlatform, GameObject player)
+    {
+        if (onPlatform)
+        {
+            platformJoint.useMotor = true;
+            platformMotor.motorSpeed = -1f;
+            platformJoint.motor = platformMotor;
+            // player.transform.SetParent(transform);
+        }
+        else
+        {
+            platformMotor.motorSpeed = 1f;
+            platformJoint.motor = platformMotor;
+            // player.transform.SetParent(null);
+            platformJoint.useMotor = true;
         }
     }
 }
