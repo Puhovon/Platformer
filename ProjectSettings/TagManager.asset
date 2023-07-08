@@ -11,9 +11,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Cart
+  - Wheel
+  - Player
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: PlayerOrEnemy
     uniqueID: 3876348925
+    locked: 0
+  - name: CutSceene
+    uniqueID: 2514998181
     locked: 0
