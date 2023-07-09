@@ -1,25 +1,79 @@
 using System;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+namespace Player
 {
-    private Rigidbody2D _rigidbody;
-    
-    private Vector2 movement;
-    private void Awake()
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class PlayerController : MonoBehaviour
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
+        [Header("Movement vars")]
+        [SerializeField] private float jumpForce = 3;
+        [SerializeField] private float speed;
+        [SerializeField] private bool isGrounded = false;
 
-    private void Update()
-    {
-        float horizontal = Input.GetAxis("Horizontal");
+        [Header("Settings")] 
+        [SerializeField] private Transform groundColliderTransform;
+        [SerializeField] private float jumpOffset;
+        [SerializeField] private LayerMask groundMask;
 
-        movement = new Vector2(horizontal, 0);
-    }
+        // [Header("Arrow")] 
+        // [SerializeField] private GameObject arrow;
+        
+        private Rigidbody2D _rigidbody;
+        private AnimationController _animationController;
+        
+        private bool facingRight = true;
 
-    private void FixedUpdate()
-    {
-        _rigidbody.AddForce(movement * 2f);
+        public bool IsGrounded() => isGrounded;
+
+        private void Awake()
+        {
+            _animationController = GetComponent<AnimationController>();
+            _rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        private void FixedUpdate()
+        {
+            Vector3 overlapCircleTransform = groundColliderTransform.position;
+            
+            isGrounded = Physics2D.OverlapCircle(overlapCircleTransform, jumpOffset,groundMask);
+        }
+
+        public void Move(float dirrection, bool isJumping)
+        {
+            if (isJumping)
+                Jump();
+            
+            if(dirrection > 0 && !facingRight)
+                Flip();
+            
+            if(dirrection < 0 && facingRight)
+                Flip();
+            
+            if(Math.Abs(dirrection) >= 0.01f)
+                HorizontalMovement(dirrection);
+        }
+
+        private void Jump()
+        {
+            if (isGrounded)
+            {
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpForce);
+                _animationController.JumpAnimation();                
+            }
+        }
+
+        private void HorizontalMovement(float dirrection)
+        {
+            _rigidbody.velocity = new Vector2(dirrection * speed, _rigidbody.velocity.y);
+        }
+
+        private void Flip()
+        {
+            Vector3 currentScale = gameObject.transform.localScale;
+            currentScale.x *= -1;
+            gameObject.transform.localScale = currentScale;
+            facingRight = !facingRight;
+        }
     }
 }
