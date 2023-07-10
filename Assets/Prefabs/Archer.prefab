@@ -83,6 +83,8 @@ GameObject:
   - component: {fileID: 30488160501647713}
   - component: {fileID: 5782314024993196036}
   - component: {fileID: 9081491950522659284}
+  - component: {fileID: 6468141902662361196}
+  - component: {fileID: 5792894188638147567}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Player
@@ -105,7 +107,7 @@ Transform:
   - {fileID: 8917607759474673440}
   - {fileID: 6003110284756981845}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1063630167241746305
 SpriteRenderer:
@@ -251,7 +253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef15cb8b1b6b324d89cd3b648b8abad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 100
+  currentHealth: 0
 --- !u!114 &9081491950522659284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +270,31 @@ MonoBehaviour:
   bullet: {fileID: 1367721149419007955, guid: 0b53e35ee7007d94ca75cc77712e23df, type: 3}
   firePoint: {fileID: 6003110284756981845}
   fireForce: 10
+--- !u!114 &6468141902662361196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5333484679039804383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f571e0ed774fa4aa73775e41a72dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5792894188638147567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5333484679039804383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 536e46852127e1e4596666d83939ffb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
 --- !u!1 &5540040895873066313
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +338,7 @@ GameObject:
   - component: {fileID: 7846635999568654943}
   m_Layer: 0
   m_Name: BodyCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,7 +390,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.038472205, y: 0.22027077}
+  m_Offset: {x: -0.013466261, y: 0.22027077}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -373,7 +401,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.11115992, y: 0.22084627}
+  m_Size: {x: 0.16117181, y: 0.22084627}
   m_EdgeRadius: 0
 --- !u!1 &6733371239930305869
 GameObject:
@@ -386,7 +414,7 @@ GameObject:
   - component: {fileID: 8917607759474673440}
   m_Layer: 0
   m_Name: Colliders
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

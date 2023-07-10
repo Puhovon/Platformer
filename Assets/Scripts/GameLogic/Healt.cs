@@ -1,14 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Healt : MonoBehaviour
 {
+    [SerializeField] private bool isPlayer = false;
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
+    
     private bool isAlive;
-
+    
     public float CurrentHealth => currentHealth;
     private void Awake()
     {
@@ -31,6 +30,8 @@ public class Healt : MonoBehaviour
         else
         {
             isAlive = false;
+            if(!isPlayer)
+                Destroy(gameObject);
         }
     }
 }

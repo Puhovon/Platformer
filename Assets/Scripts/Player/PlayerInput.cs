@@ -8,6 +8,7 @@ namespace Player
     {
         private PlayerController _playerController;
         private Shooter shooter;
+        
 
         private void Awake()
         {

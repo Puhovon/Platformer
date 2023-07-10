@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageDealler : MonoBehaviour
@@ -9,11 +6,9 @@ public class DamageDealler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Damageble"))
+        if (other.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<Healt>().TakeDamage(damage);
+            other.transform.parent.parent.GetComponentInParent<Healt>().TakeDamage(damage);
         }
-        
-        Destroy(gameObject);
     }
 }

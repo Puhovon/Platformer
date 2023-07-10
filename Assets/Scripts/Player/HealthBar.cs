@@ -8,16 +8,16 @@ namespace Player
     {
         public Slider slider;
 
-        private Healt playerHealth;
+        private Healt health;
 
         private void Awake()
         {
-            playerHealth = GetComponent<Healt>();
+            health = GetComponent<Healt>();
         }
 
         private void Update()
         {
-            slider.value = playerHealth.CurrentHealth;
+            slider.value = health.CurrentHealth;
         }
     }
 }

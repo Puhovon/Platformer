@@ -16,7 +16,6 @@ public class MoveblePlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log($"Collision with {other.gameObject.name}");
         if (other.gameObject.CompareTag("Player"))
         {
             playerOnPlatform = true;
@@ -26,7 +25,6 @@ public class MoveblePlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        Debug.Log($"Collision exit: {other.gameObject.name}");
         if (other.gameObject.CompareTag("Player"))
         {
             playerOnPlatform = false;
