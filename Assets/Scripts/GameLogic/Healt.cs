@@ -9,6 +9,8 @@ public class Healt : MonoBehaviour
     private bool isAlive;
     
     public float CurrentHealth => currentHealth;
+    public bool CheckIsAlive() => currentHealth <= 0;
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -21,17 +23,5 @@ public class Healt : MonoBehaviour
         CheckIsAlive();
     }
 
-    private void CheckIsAlive()
-    {
-        if (currentHealth > 0)
-        {
-            isAlive = true;
-        }
-        else
-        {
-            isAlive = false;
-            if(!isPlayer)
-                Destroy(gameObject);
-        }
-    }
+
 }

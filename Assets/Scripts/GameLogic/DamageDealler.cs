@@ -8,7 +8,8 @@ public class DamageDealler : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.transform.parent.parent.GetComponentInParent<Healt>().TakeDamage(damage);
+            other.transform.parent.GetComponentInParent<Healt>().TakeDamage(damage);
+            
         }
     }
 }

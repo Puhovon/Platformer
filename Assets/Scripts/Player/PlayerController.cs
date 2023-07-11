@@ -71,11 +71,11 @@ namespace Player
         private void Flip()
         {
             Vector3 currentScale = gameObject.transform.localScale;
-            Vector3 currentArrowScale = arrow.transform.localScale;
+            // Vector3 currentArrowScale = arrow.transform.localScale;
             currentScale.x *= -1;
-            currentArrowScale.x *= -1;
+            // currentArrowScale.x *= -1;
             gameObject.transform.localScale = currentScale;
-            arrow.transform.localScale = currentArrowScale;
+            // arrow.transform.localScale = currentArrowScale;
             facingRight = !facingRight;
         }
     }

@@ -7,7 +7,7 @@ public class Attack : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<Healt>().TakeDamage(damage);
+            other.gameObject.GetComponentInParent<Healt>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }

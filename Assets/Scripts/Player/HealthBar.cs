@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,11 +5,11 @@ namespace Player
 {
     public class HealthBar : MonoBehaviour
     {
-        public Slider slider;
+        [SerializeField] private Slider slider;
 
         private Healt health;
 
-        private void Awake()
+        private void Start()
         {
             health = GetComponent<Healt>();
         }
