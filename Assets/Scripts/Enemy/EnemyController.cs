@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (health.CheckIsAlive())
+        if (health.CheckIsDead())
         {
             StartCoroutine(Die());
         }

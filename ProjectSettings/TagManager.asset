@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - EnemyStopper
+  - DeathTrigger
   layers:
   - Default
   - TransparentFX

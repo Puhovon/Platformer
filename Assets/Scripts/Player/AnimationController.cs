@@ -14,7 +14,7 @@ public class AnimationController : MonoBehaviour
 
     private bool jumping = false;
     private bool fall = false;
-    private void ResetLanding() => _animator.SetBool("IsLanding", false);
+    
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -35,28 +35,18 @@ public class AnimationController : MonoBehaviour
     private void FixedUpdate()
     {
         float velocityY = _player.velocity.y;
-
+        _animator.SetFloat("VelocityY", velocityY);
         if (velocityY < -0.4)
             fall = true;
-        if (jumping || fall )
+        
+        if (jumping)
         {
             if (velocityY < -0.4)
             {
-                Debug.Log("IsFalling");
                 _animator.SetBool("Jump", false);
-                _animator.SetBool("IsFalling", true);
-                onGround = _playerController.IsGrounded();
-            }
-            else if (velocityY == 0 || onGround)
-            {
-                _animator.SetBool("IsFalling", false);
-                _animator.SetBool("IsLanding", true);
-                jumping = false;
-                fall = !fall;
             }
         }
 
-        
 
         if (Math.Abs(_player.velocity.x) > 0.01f)
         {
@@ -96,5 +86,13 @@ public class AnimationController : MonoBehaviour
     public void Attack()
     {
         _animator.SetTrigger("Attack");
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("DeathTrigger"))
+        {
+            StartCoroutine(Die());
+        }
     }
 }

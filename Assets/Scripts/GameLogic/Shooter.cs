@@ -13,23 +13,21 @@ public class Shooter : MonoBehaviour
     private void Awake()
     {
         _animationController = GetComponent<AnimationController>();
-
     }
 
-    public void Shoot(float dirrection)
+    public void Shoot(bool facingRight)
     {
         _animationController.Attack();
-        dirrections = dirrection;
-        StartCoroutine(Attack());
+        StartCoroutine(Attack(facingRight));
     }
 
-    private IEnumerator Attack()
+    private IEnumerator Attack(bool facingRight)
     {
         yield return new WaitForSeconds(0.7f);
         GameObject newBullet = Instantiate(bullet, firePoint.position, Quaternion.identity);
         var bulletRb = newBullet.GetComponent<Rigidbody2D>();
 
-        if (dirrections >= 0)
+        if (facingRight)
             bulletRb.velocity = new Vector2(fireForce * 1, bulletRb.velocity.y);
         else
             bulletRb.velocity = new Vector2(fireForce * -1, bulletRb.velocity.y);

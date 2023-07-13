@@ -17,17 +17,20 @@ namespace Player
         [SerializeField] private LayerMask groundMask;
 
         [Header("Arrow")] 
-        [SerializeField] private GameObject arrow;
+        [SerializeField] private SpriteRenderer _arrowSpriteRenderer;
         
         private Rigidbody2D _rigidbody;
         private AnimationController _animationController;
+        private SpriteRenderer _spriteRenderer;
+
         
         private bool facingRight = true;
-
-        public bool IsGrounded() => isGrounded;
+        
+        public bool IsFacingRight => facingRight;
 
         private void Awake()
         {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
             _animationController = GetComponent<AnimationController>();
             _rigidbody = GetComponent<Rigidbody2D>();
         }
@@ -70,12 +73,9 @@ namespace Player
 
         private void Flip()
         {
-            Vector3 currentScale = gameObject.transform.localScale;
-            // Vector3 currentArrowScale = arrow.transform.localScale;
-            currentScale.x *= -1;
-            // currentArrowScale.x *= -1;
-            gameObject.transform.localScale = currentScale;
-            // arrow.transform.localScale = currentArrowScale;
+            Debug.Log("Flip");
+            _spriteRenderer.flipX = facingRight;
+            _arrowSpriteRenderer.flipX = facingRight;
             facingRight = !facingRight;
         }
     }

@@ -6,8 +6,13 @@ namespace Player
     [RequireComponent(typeof(PlayerController))]
     public class PlyerInput : MonoBehaviour
     {
+        [SerializeField] private float cooldownTimer;
+        
         private PlayerController _playerController;
         private Shooter shooter;
+
+        private float currentCooldownTimer;
+        
         
 
         private void Awake()
@@ -20,11 +25,18 @@ namespace Player
         {
             float horizontal = Input.GetAxis("Horizontal");
             bool isJumpBtnPressed = Input.GetButtonDown("Jump");
-            
-            if(Input.GetButtonDown("Fire1"))
-                shooter.Shoot(horizontal);
+
+            currentCooldownTimer += Time.deltaTime;
+
+            if (Input.GetButtonDown("Fire1") && currentCooldownTimer >= cooldownTimer)
+            {
+                shooter.Shoot(_playerController.IsFacingRight);
+                currentCooldownTimer = 0;
+            }
 
             _playerController.Move(horizontal, isJumpBtnPressed);
         }
+
+        
     }
 }
