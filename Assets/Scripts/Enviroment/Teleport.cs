@@ -1,46 +1,52 @@
 using System;
 using System.Collections;
+using Cinemachine;
 using TMPro;
 using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    [SerializeField] private Transform teleportTo;
-    [SerializeField] private TMP_Text text;
+
+    [Header("Settings")]
     [SerializeField] private GameObject player;
+    [SerializeField] private Collider2D nextConfig;
+    [SerializeField]private Transform _teleportTo;
 
+
+    private CinemachineConfiner _camera;
     private Animator _playerAnimator;
+    private CompleteLevel _completeLevel;
 
-    private bool onTrigger = false;
-    private int count = 0;
 
     private void Awake()
     {
         _playerAnimator = player.GetComponent<Animator>();
+        _completeLevel = GameObject.FindWithTag("GameController").GetComponent<CompleteLevel>();
+        _camera = GameObject.Find("Virtual Camera").GetComponent<CinemachineConfiner>();
+        Debug.Log($"Teleport to: {_teleportTo.name} from {transform.name}");
     }
 
-    private void Update()
+    public void StartTeleporting()
     {
-        if (onTrigger && Input.GetKey(KeyCode.E) && count < 1)
-        {
-            count++;
-            StartCoroutine(Teleporting());
-        }    
+        StartCoroutine(Teleporting());
     }
-
     private IEnumerator Teleporting()
     {
-        _playerAnimator.SetTrigger("Teleport");    
+        _playerAnimator.SetTrigger("Teleport");
         yield return new WaitForSeconds(1);
-        player.transform.position = teleportTo.position;
+        player.transform.position = _teleportTo.position;
+        Debug.Log($"Player position: {player.transform.position}\nTeleportTo name: {_teleportTo.name}" +
+                  $"TeleportTo position: {_teleportTo.position}");
+        _teleportTo.GetComponentInChildren<ParticleSystem>().Play();
+        _camera.m_BoundingShape2D = nextConfig;
     }
     
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            onTrigger = true;
-            text.text = "Press [E] to teleport";
+            _completeLevel.CanOpen = true;
+            _completeLevel.OpenPanel();
         }
     }
 
@@ -48,8 +54,8 @@ public class Teleport : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            onTrigger = false;
-            text.text = "";
-        }
+            _completeLevel.CanOpen = false;
+        } 
+        StopAllCoroutines();
     }
 }

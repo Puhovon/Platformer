@@ -34,7 +34,7 @@ namespace Player
                 currentCooldownTimer = 0;
             }
 
-            _playerController.Move(horizontal, isJumpBtnPressed);
+             _playerController.Move(horizontal, isJumpBtnPressed);
         }
 
         

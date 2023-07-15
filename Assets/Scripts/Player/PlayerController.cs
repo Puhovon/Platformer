@@ -73,7 +73,6 @@ namespace Player
 
         private void Flip()
         {
-            Debug.Log("Flip");
             _spriteRenderer.flipX = facingRight;
             _arrowSpriteRenderer.flipX = facingRight;
             facingRight = !facingRight;

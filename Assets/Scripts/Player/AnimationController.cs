@@ -36,9 +36,7 @@ public class AnimationController : MonoBehaviour
     {
         float velocityY = _player.velocity.y;
         _animator.SetFloat("VelocityY", velocityY);
-        if (velocityY < -0.4)
-            fall = true;
-        
+
         if (jumping)
         {
             if (velocityY < -0.4)
