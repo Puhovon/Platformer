@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 13801526}
   - component: {fileID: 13801527}
+  - component: {fileID: 13801529}
   - component: {fileID: 13801528}
   m_Layer: 0
   m_Name: Props_5
@@ -237,7 +238,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -1.5298233, y: 3.09375}
@@ -253,6 +254,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.0039825, y: 6.1875}
   m_EdgeRadius: 0
+--- !u!114 &13801529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13801525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8411dee090d1ba644a7e80dacf16adc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 216255983}
 --- !u!1 &15515647 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5333484679039804383, guid: 9cd6b7780b2f0dd4ca2788c0d6748e20, type: 3}
@@ -2453,8 +2467,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 15515647}
-  nextConfig: {fileID: 462892340}
-  _teleportTo: {fileID: 171782481}
+  configs: []
+  _teleportTo:
+  - {fileID: 1538995853}
+  - {fileID: 171782481}
 --- !u!1 &171782480
 GameObject:
   m_ObjectHideFlags: 0
@@ -7515,7 +7531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218767789}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4321303, y: 0.16168833, z: -27.605375}
+  m_LocalPosition: {x: -0.82798433, y: 0.1747086, z: -27.605375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30509,7 +30525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774466596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.2806444, y: -1.1599998, z: -27.605375}
+  m_LocalPosition: {x: -6.034393, y: -1.3199999, z: -27.605375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30959,8 +30975,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 15515647}
-  nextConfig: {fileID: 989156245}
-  _teleportTo: {fileID: 1538995853}
+  configs:
+  - {fileID: 989156245}
+  - {fileID: 462892340}
+  _teleportTo:
+  - {fileID: 1538995853}
+  - {fileID: 171782481}
 --- !u!1 &883552594
 GameObject:
   m_ObjectHideFlags: 0
@@ -53530,11 +53550,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3807900727416857859, guid: 9cd6b7780b2f0dd4ca2788c0d6748e20, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.77
+      value: -6.62
       objectReference: {fileID: 0}
     - target: {fileID: 3807900727416857859, guid: 9cd6b7780b2f0dd4ca2788c0d6748e20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.66
+      value: -1.82
       objectReference: {fileID: 0}
     - target: {fileID: 3807900727416857859, guid: 9cd6b7780b2f0dd4ca2788c0d6748e20, type: 3}
       propertyPath: m_LocalPosition.z

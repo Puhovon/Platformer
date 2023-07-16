@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -13,9 +11,17 @@ public class CompleteLevel : MonoBehaviour
     private Animator _panelAnimator;
 
     private bool canOpen = false;
+    private int countOfTeleport = 0;
     public bool CanOpen
     {
+        get { return canOpen;}
         set { canOpen = value; }
+    }
+
+    public int CountOfTeleport
+    {
+        get { return countOfTeleport; }
+        set { countOfTeleport = value; }
     }
 
     private void PanelActive() => panel.SetActive(false);
@@ -43,9 +49,8 @@ public class CompleteLevel : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                _teleport.StartTeleporting();
                 canOpen = false;
-                _panelAnimator.SetTrigger("Close");
+                StartCoroutine(_teleport.Teleporting());
                 panel.SetActive(false);
             }
         }
